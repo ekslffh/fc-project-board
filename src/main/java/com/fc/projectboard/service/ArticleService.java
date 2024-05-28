@@ -92,8 +92,4 @@ public class ArticleService {
         return articleRepository.findAllDistinctHashtags();
     }
 
-    public ArticleWithCommentsDto getArticleWithComments(Long articleId) {
-        return null;
-    }
-
 }
