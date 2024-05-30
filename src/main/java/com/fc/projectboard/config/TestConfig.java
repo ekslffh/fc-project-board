@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-@Profile("test")
+@Profile("test") // 테스트 환경에서 @ActiveProfiles("test") 를 이용하여 여기에 설정된 빈들을 활성화 한다.
 public class TestConfig {
 
     @Bean

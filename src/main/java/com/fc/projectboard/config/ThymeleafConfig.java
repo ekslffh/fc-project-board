@@ -10,6 +10,7 @@ import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
 @Configuration
 public class ThymeleafConfig {
 
+    // thymeleaf 디커플 로직을 통해 html 코드와 thymeleaf 문법코드를 분리한다.
     @Bean
     public SpringResourceTemplateResolver thymeleafTemplateResolver(
             SpringResourceTemplateResolver defaultTemplateResolver,

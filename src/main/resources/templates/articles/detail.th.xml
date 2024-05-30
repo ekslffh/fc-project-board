@@ -13,15 +13,15 @@
     </attr>
 
     <attr sel="#article-buttons">
-        <attr sel="#delete-article-form" th:action="'/articles/' + *{id} + '/delete'" th:method="post">
-            <attr sel="#update-article" th:href="'/articles/' + *{id} + '/form'" />
-        </attr>
+        <attr sel="#update-article" th:href="@{'/articles/' + *{id} + '/form'}" />
+        <attr sel="#delete-article-form" th:action="'/articles/' + *{id} + '/delete'" th:method="post" />
     </attr>
 
-    <attr sel=".article-id" th:name="articleId" th:value="*{id}" />
     <attr sel="#comment-form" th:action="@{/comments/new}" th:method="post">
         <attr sel="#comment-textbox" th:name="content" />
     </attr>
+
+    <attr sel=".article-id" th:name="articleId" th:value="*{id}" />
 
     <attr sel="#article-comments" th:remove="all-but-first">
         <attr sel="li[0]" th:each="articleComment : ${articleComments}">

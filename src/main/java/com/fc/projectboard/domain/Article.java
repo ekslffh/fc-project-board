@@ -31,7 +31,7 @@ public class Article extends AuditingFields {
 
     @Setter private String hashtag; // 해시태그
 
-    @ToString.Exclude
+    @ToString.Exclude // 순환참조의 문제
     @OrderBy("createdAt DESC")
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
     private Set<ArticleComment> articleComments = new LinkedHashSet<>();
