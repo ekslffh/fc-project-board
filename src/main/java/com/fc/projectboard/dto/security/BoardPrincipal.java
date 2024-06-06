@@ -75,4 +75,5 @@ public record BoardPrincipal(
             this.name = name;
         }
     }
+
 }

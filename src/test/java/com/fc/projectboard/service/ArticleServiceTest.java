@@ -32,10 +32,13 @@ import static org.mockito.BDDMockito.*;
 @ExtendWith(MockitoExtension.class)
 class ArticleServiceTest {
 
-    @InjectMocks private ArticleService sut;
+    @InjectMocks
+    private ArticleService sut;
 
-    @Mock private ArticleRepository articleRepository;
-    @Mock private UserAccountRepository userAccountRepository;
+    @Mock
+    private ArticleRepository articleRepository;
+    @Mock
+    private UserAccountRepository userAccountRepository;
 
     @DisplayName("검색어 없이 게시글을 검색하면, 게시글 페이지를 반환한다.")
     @Test

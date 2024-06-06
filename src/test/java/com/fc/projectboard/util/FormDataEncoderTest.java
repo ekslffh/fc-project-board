@@ -67,7 +67,8 @@ class FormDataEncoderTest {
             Boolean bool,
             BigDecimal bigDecimal,
             TestEnum testEnum
-    ) {}
+    ) {
+    }
 
     enum TestEnum {
         ONE, TWO, THREE

@@ -1,6 +1,5 @@
 package com.fc.projectboard.controller;
 
-import com.fc.projectboard.dto.UserAccountDto;
 import com.fc.projectboard.dto.request.ArticleCommentRequest;
 import com.fc.projectboard.dto.security.BoardPrincipal;
 import com.fc.projectboard.service.ArticleCommentService;
@@ -29,7 +28,7 @@ public class ArticleCommentController {
         return "redirect:/articles/" + articleCommentRequest.articleId();
     }
 
-    @PostMapping ("/{commentId}/delete")
+    @PostMapping("/{commentId}/delete")
     public String deleteArticleComment(
             @PathVariable Long commentId,
             @AuthenticationPrincipal BoardPrincipal boardPrincipal,

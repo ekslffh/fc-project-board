@@ -32,10 +32,8 @@ class ArticleCommentServiceTest {
 
     @Mock
     private ArticleRepository articleRepository;
-
     @Mock
     private ArticleCommentRepository articleCommentRepository;
-
     @Mock
     private UserAccountRepository userAccountRepository;
 

@@ -2,7 +2,6 @@ package com.fc.projectboard.controller;
 
 import com.fc.projectboard.domain.constant.FormStatus;
 import com.fc.projectboard.domain.type.SearchType;
-import com.fc.projectboard.dto.UserAccountDto;
 import com.fc.projectboard.dto.request.ArticleRequest;
 import com.fc.projectboard.dto.response.ArticleResponse;
 import com.fc.projectboard.dto.response.ArticleWithCommentsResponse;
@@ -15,7 +14,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -82,7 +80,7 @@ public class ArticleController {
         return "articles/form";
     }
 
-    @PostMapping ("/form")
+    @PostMapping("/form")
     public String postNewArticle(
             @AuthenticationPrincipal BoardPrincipal boardPrincipal,
             ArticleRequest articleRequest
@@ -108,19 +106,17 @@ public class ArticleController {
             @AuthenticationPrincipal BoardPrincipal boardPrincipal,
             ArticleRequest articleRequest
     ) {
-        // TODO: 인증 정보를 넣어줘야 한다.
         articleService.updateArticle(articleId, articleRequest.toDto(boardPrincipal.toDto()));
 
         return "redirect:/articles/" + articleId;
     }
 
-    @PostMapping ("/{articleId}/delete")
+    @PostMapping("/{articleId}/delete")
     public String deleteArticle(
             @PathVariable Long articleId,
             @AuthenticationPrincipal BoardPrincipal boardPrincipal
     ) {
 //        SecurityContextHolder.getContext().getAuthentication();
-        // TODO: 인증 정보를 넣어줘야 한다.
         articleService.deleteArticle(articleId, boardPrincipal.getUsername());
 
         return "redirect:/articles";
