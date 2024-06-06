@@ -1,6 +1,5 @@
 package com.fc.projectboard.repository;
 
-import com.fc.projectboard.config.JpaConfig;
 import com.fc.projectboard.domain.Article;
 import com.fc.projectboard.domain.UserAccount;
 import org.junit.jupiter.api.DisplayName;

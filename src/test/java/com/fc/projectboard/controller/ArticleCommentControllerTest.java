@@ -13,7 +13,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.TestExecutionEvent;
-import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -34,7 +33,8 @@ class ArticleCommentControllerTest {
     private final MockMvc mvc;
     private final FormDataEncoder formDataEncoder;
 
-    @MockBean private ArticleCommentService articleCommentService;
+    @MockBean
+    private ArticleCommentService articleCommentService;
 
     ArticleCommentControllerTest(
             @Autowired MockMvc mvc,

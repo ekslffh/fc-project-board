@@ -16,4 +16,5 @@ public record ArticleCommentRequest(Long articleId, String content) {
                 content
         );
     }
+
 }
