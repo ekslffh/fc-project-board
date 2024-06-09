@@ -248,7 +248,7 @@ class ArticleServiceTest {
         given(userAccountRepository.getReferenceById(dto.userAccountDto().userId())).willReturn(dto.userAccountDto().toEntity());
 
         willDoNothing().given(articleRepository).flush();
-        willDoNothing().given(hashtagService).deleteHashtagWithoutArticles(any());
+        willDoNothing().given(hashtagService).deleteHashtagWithoutArticles(anyLong());
 
         given(hashtagService.parseHashtagNames(dto.content())).willReturn(expectedHashtagNames);
         given(hashtagService.findHashtagsByNames(expectedHashtagNames)).willReturn(expectedHashtags);
@@ -268,7 +268,7 @@ class ArticleServiceTest {
         then(articleRepository).should().getReferenceById(dto.id());
         then(userAccountRepository).should().getReferenceById(dto.userAccountDto().userId());
         then(articleRepository).should().flush();
-        then(hashtagService).should(times(2)).deleteHashtagWithoutArticles(any());
+        then(hashtagService).should(times(2)).deleteHashtagWithoutArticles(anyLong());
         then(hashtagService).should().parseHashtagNames(dto.content());
         then(hashtagService).should().findHashtagsByNames(expectedHashtagNames);
     }
@@ -320,7 +320,7 @@ class ArticleServiceTest {
 
         willDoNothing().given(articleRepository).deleteByIdAndUserAccount_UserId(articleId, userId);
         willDoNothing().given(articleRepository).flush();
-        willDoNothing().given(hashtagService).deleteHashtagWithoutArticles(any());
+        willDoNothing().given(hashtagService).deleteHashtagWithoutArticles(anyLong());
 
         // When
         sut.deleteArticle(1L, userId);
@@ -329,7 +329,7 @@ class ArticleServiceTest {
         then(articleRepository).should().getReferenceById(articleId);
         then(articleRepository).should().deleteByIdAndUserAccount_UserId(articleId, userId);
         then(articleRepository).should().flush();
-        then(hashtagService).should(times(2)).deleteHashtagWithoutArticles(any());
+        then(hashtagService).should(times(2)).deleteHashtagWithoutArticles(anyLong());
     }
 
     @DisplayName("게시글 수를 조회하면, 게시글 수를 반환한다")
